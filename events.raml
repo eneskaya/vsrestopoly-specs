@@ -19,12 +19,12 @@ schemas:
        "type": {
          "type": "string",
          "required": true ,
-         "description":"internal type of the event (e.g bank transfer, rent, got to jail, estate transfer)"
+         "description": "internal type of the event (e.g bank transfer, rent, got to jail, estate transfer)"
        },
        "name": {
          "type": "string",
          "required": true,
-         "description":"human readable name for this event"
+         "description": "human readable name for this event"
        },
        "reason": {
          "type": "string",
@@ -77,10 +77,11 @@ schemas:
          "description": "a regex matching for the uri referenced by this event"
        }
        player: {
-         "description":"a regex matching for the player uri issuing the event"
+         "description": "a regex matching for the player uri issuing the event"
        }
    delete:
      queryParameters: (same as get)
+
    /{eventid}:
      get:
-       description: gets the event detailsdescription: removes all matching events
+       description: gets the event
