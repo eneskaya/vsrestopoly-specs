@@ -1,0 +1,20 @@
+[
+  {
+    "id" : "24345",
+    "name" : "Abc Strasse",
+    "price" : "500",
+    "houses" : "2",
+    "hotel"  : "0",
+    "hypothec" : "250",
+    "rent" : "15"
+  },
+  {
+    "id" : "9066",
+    "name" : "Efg Strasse",
+    "price" : "700",
+    "houses" : "0",
+    "hotel"  : "1",
+    "hypothec" : "350",
+    "rent" : "1000"
+  }
+]

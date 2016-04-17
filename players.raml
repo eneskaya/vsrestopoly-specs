@@ -1,0 +1,70 @@
+#%RAML 0.8
+
+ schemas:
+  - player: !include player.schema
+  - street: !include player-street.schema
+
+ resourceTypes:
+  - readOnlyCollection:
+      description: Collection of available <<resourcePathName>>.
+      get:
+        description: Get a list of <<resourcePathName>>.
+        responses:
+          200:
+            body:
+              application/json:
+                example: |
+                  <<exampleCollection>>
+  - collection:
+      description: Collection of available <<resourcePathName>>.
+      get:
+        description: Get a list of <<resourcePathName>>.
+        responses:
+          200:
+            body:
+              application/json:
+                example: |
+                  <<exampleCollection>>
+
+
+/players:
+  type: { collection: { schema: "player" } }
+  post:
+    description: adds a new player to the collection of players
+  get:
+    description: |
+      returns all matching players according
+      to query parameters (regex)
+    queryParameters:
+      id: {"description":"a regex matching for player id"}
+      name: {"description":"a regex matching for the readable name"}
+  delete:
+    queryParameters: (same as get)
+
+  /{playerid}:
+    description: player entity
+    get:
+      description: gets the player with 'playerid = {playerid}'
+      responses:
+        200:
+          body:
+            application/json:
+              example: !include playeridExample.sample
+        404:
+          body:
+            application/json:
+              example:
+                {
+                  "message": "Player not found"
+                }
+    /streets:
+      type: { collection: { schema: "street" } }
+      description: a collection of streets owned by the player
+      get:
+        description: Retrieve streets owned by this player
+        responses:
+          200:
+            description: Succesfully retrieved streets
+            body:
+              application/json:
+                example: !include streetexample.sample

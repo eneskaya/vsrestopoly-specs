@@ -1,0 +1,17 @@
+  {
+      "playerid" : "878943759",
+      "name" : "Finn",
+      "money" : "1500",
+      "streets" :
+        [
+          {
+            "id" : "24345",
+            "name" : "Abc Strasse",
+            "price" : "500",
+            "houses" : "2",
+            "hotel"  : "0",
+            "hypothec" : "250",
+            "rent" : "15"
+          }
+        ]
+  }

@@ -1,0 +1,42 @@
+{
+    "type": "object",
+    "$schema": "http://json-schema.org/draft-03/schema",
+    "id": "street",
+    "properties": {
+      "id": {
+        "type": "integer",
+        "required": true,
+        "description": "the url to the street on the event server"
+      },
+      "name": {
+        "type": "string",
+        "required": true,
+        "description":"human readable name for this street"
+      },
+      "price": {
+        "type":"integer",
+        "required": true,
+        "description":"the costs to buy this street"
+      },
+      "hypothec": {
+        "type": "integer",
+        "required": true,
+        "description": "the loan the player would get from the bank for this street"
+      },
+      "houses": {
+        "type": "integer",
+        "required": false,
+        "description": "the amount of houses which are set on this street"
+      },
+      "hotel": {
+        "type": "boolean",
+        "required": false,
+        "description": "the information if a hotel is placed on this street"
+      },
+      "rent": {
+        "type": "integer",
+        "required": false,
+        "description": "the information if a hotel is placed on this street"
+      }
+  }
+}
