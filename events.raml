@@ -45,9 +45,15 @@ schemas:
        }
      }
    }
-   
+
 /events:
-   type: { collection: { schema: "event", "getexample":"", "postexample":"" } }
+   type: {
+     collection: {
+       schema: "event",
+       "getexample": "",
+       "postexample": ""
+     }
+   }
    post:
      description: adds a new event to the collection of events
    get:
@@ -55,14 +61,24 @@ schemas:
        returns all matching events according
        to query parameters (regex)
      queryParameters:
-       game: {"description":"a regex matching for game uri"}
-       type: {"description":"a regex matching for event type"}
-       name: {"description":"a regex matching for the readable name"}
-       reason: {"description":"a regex matching for the reason"}
-       resource: {"description":"a regex matching for the uri
-       referenced by this event"}
-       player: {"description":"a regex matching for the player
-       uri issuing the event"}
+       game: {
+         "description": "a regex matching for game uri"
+       }
+       type: {
+         "description": "a regex matching for event type"
+       }
+       name: {
+         "description": "a regex matching for the readable name"
+       }
+       reason: {
+         "description": "a regex matching for the reason"
+       }
+       resource: {
+         "description": "a regex matching for the uri referenced by this event"
+       }
+       player: {
+         "description":"a regex matching for the player uri issuing the event"
+       }
    delete:
      queryParameters: (same as get)
    /{eventid}:
