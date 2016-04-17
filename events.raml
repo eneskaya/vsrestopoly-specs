@@ -1,0 +1,70 @@
+#%RAML 0.8
+schemas:
+ - event: |
+   {
+     "type": "object",
+     "$schema": "http://json-schema.org/draft-03/schema",
+     "id": "event",
+     "properties": {
+       "id": {
+         "type": "string",
+         "required": true,
+         "description": "the url to the event on the event server"
+       },
+       "game": {
+         "type":"string",
+         "required": true,
+         "description":"the uri of the game this event belongs to"
+       },
+       "type": {
+         "type": "string",
+         "required": true ,
+         "description":"internal type of the event (e.g bank transfer, rent, got to jail, estate transfer)"
+       },
+       "name": {
+         "type": "string",
+         "required": true,
+         "description":"human readable name for this event"
+       },
+       "reason": {
+         "type": "string",
+         "required": true,
+         "description": "a description why this event occured"
+       },
+       "resource": {
+         "type": "string",
+         "description": "the uri of the resource related to this event where more information may be found (e.g. an uri to a transfer orsimilar)"
+       },
+       "player": {
+         "type": "string",
+         "description": "The uri of the player triggering it"
+       },
+       "time": {
+         "type": "string",
+         "description":"A timestamp when this event was given to the events service"
+       }
+     }
+   }
+   
+/events:
+   type: { collection: { schema: "event", "getexample":"", "postexample":"" } }
+   post:
+     description: adds a new event to the collection of events
+   get:
+     description: |
+       returns all matching events according
+       to query parameters (regex)
+     queryParameters:
+       game: {"description":"a regex matching for game uri"}
+       type: {"description":"a regex matching for event type"}
+       name: {"description":"a regex matching for the readable name"}
+       reason: {"description":"a regex matching for the reason"}
+       resource: {"description":"a regex matching for the uri
+       referenced by this event"}
+       player: {"description":"a regex matching for the player
+       uri issuing the event"}
+   delete:
+     queryParameters: (same as get)
+   /{eventid}:
+     get:
+       description: gets the event detailsdescription: removes all matching events
